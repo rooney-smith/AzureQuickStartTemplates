@@ -18,3 +18,14 @@ steps:
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
 
+- task: AzureResourceManagerTemplateDeployment@3
+  inputs:
+    deploymentScope: 'Resource Group'
+    azureResourceManagerConnection: 'Visual Studio Enterprise Subscription – MPN(e115c70e-6074-4a16-8a71-9f6aae0015ab)'
+    subscriptionId: 'e115c70e-6074-4a16-8a71-9f6aae0015ab'
+    action: 'Create Or Update Resource Group'
+    resourceGroupName: 'Test-DevOps'
+    templateLocation: 'Linked artifact'
+    csmFile: '/101-vm-userdata/azuredeploy.json'
+    csmParametersFile: '/101-vm-userdata/azuredeploy.parameters.json'
+    deploymentMode: 'Incremental'
