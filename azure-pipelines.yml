@@ -27,6 +27,6 @@ steps:
     resourceGroupName: 'Test-DevOps'
     location: 'UK South'
     templateLocation: 'Linked artifact'
-    csmFile: '/101-vm-userdata/azuredeploy.json'
-    csmParametersFile: '/101-vm-userdata/azuredeploy.parameters.json'
+    csmFile: 'https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-userdata/azuredeploy.json'
+    csmParametersFile: 'https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-userdata/azuredeploy.parameters.json'
     deploymentMode: 'Incremental'
