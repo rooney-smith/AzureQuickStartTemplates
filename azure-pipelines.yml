@@ -24,11 +24,21 @@ steps:
     azureResourceManagerConnection: 'Visual Studio Enterprise Subscription – MPN(e115c70e-6074-4a16-8a71-9f6aae0015ab)'
     subscriptionId: 'e115c70e-6074-4a16-8a71-9f6aae0015ab'
     action: 'Create Or Update Resource Group'
-    resourceGroupName: 'Test-DevOps'
+    resourceGroupName: 'Test-rg'
     location: 'UK South'
     templateLocation: 'Linked artifact'
-    csmFile: '$(System.DefaultWorkingDirectory)/101-vm-userdata/azuredeploy.json'
-    csmParametersFile: '$(System.DefaultWorkingDirectory)/101-vm-userdata/azuredeploy.parameters.json'
-    overrideParameters: -adminPasswordOrKey $(sshkey) 
-    deploymentMode: 'Incremental'
- 
+    csmFile: '$(System.DefaultWorkingDirectory)/101-virtual-machine/azuredeploy.json'
+    csmParametersFile: '$(System.DefaultWorkingDirectory)/101-virtual-machine/azuredeploy.parameters.json'
+    deploymentMode: 'Validation'
+
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: '101-virtual-machine'
+    Contents: '**'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
