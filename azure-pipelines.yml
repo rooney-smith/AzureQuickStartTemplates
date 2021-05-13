@@ -27,13 +27,13 @@ steps:
     resourceGroupName: 'Test-rg'
     location: 'UK South'
     templateLocation: 'Linked artifact'
-    csmFile: '$(System.DefaultWorkingDirectory)/101-virtual-machine/azuredeploy.json'
-    csmParametersFile: '$(System.DefaultWorkingDirectory)/101-virtual-machine/azuredeploy.parameters.json'
+    csmFile: '$(System.DefaultWorkingDirectory)/101-virtual-network/azuredeploy.json'
+    csmParametersFile: '$(System.DefaultWorkingDirectory)/101-virtual-network/azuredeploy.parameters.json'
     deploymentMode: 'Validation'
 
 - task: CopyFiles@2
   inputs:
-    SourceFolder: '101-virtual-machine'
+    SourceFolder: '101-virtual-network'
     Contents: '**'
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
 
