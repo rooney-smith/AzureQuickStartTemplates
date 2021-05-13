@@ -3,13 +3,13 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "adminUsername": {
-      "value": "GEN-UNIQUE"
+      "value": "super"
     },
     "userData": {
       "value": "echo userData"
     },
     "dnsLabelPrefix": {
-      "value": "GEN-UNIQUE"
+      "value": "testvm01"
     },
     "adminPasswordOrKey": {
       "value": "GEN-SSH-PUB-KEY"
